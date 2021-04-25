@@ -6,14 +6,13 @@
 TEST_CASE("has_no_nucleotides")
 {
     const nucleotide_count::counter dna("");
-    const std::map<char, int> expected{ {'A', 0}, {'T', 0}, {'C', 0}, {'G', 0} };
+    const std::map<char, int> expected{{'A', 0}, {'T', 0}, {'C', 0}, {'G', 0}};
 
     const auto actual = dna.nucleotide_counts();
 
     REQUIRE(expected == actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("has_no_adenosine")
 {
     const nucleotide_count::counter dna("");
@@ -31,7 +30,7 @@ TEST_CASE("repetitive_cytidine_gets_counts")
 TEST_CASE("repetitive_sequence_has_only_guanosine")
 {
     const nucleotide_count::counter dna("GGGGGGGG");
-    const std::map<char, int> expected{ {'A', 0}, {'T', 0}, {'C', 0}, {'G', 8} };
+    const std::map<char, int> expected{{'A', 0}, {'T', 0}, {'C', 0}, {'G', 8}};
 
     const auto actual = dna.nucleotide_counts();
 
@@ -69,10 +68,9 @@ TEST_CASE("validates_nucleotides_on_construction")
 TEST_CASE("counts_all_nucleotides")
 {
     const nucleotide_count::counter dna("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
-    std::map<char, int> expected{ {'A', 20}, {'T', 21}, {'G', 17}, {'C', 12} };
+    std::map<char, int> expected{{'A', 20}, {'T', 21}, {'G', 17}, {'C', 12}};
 
     auto actual = dna.nucleotide_counts();
 
     REQUIRE(expected == actual);
 }
-#endif
