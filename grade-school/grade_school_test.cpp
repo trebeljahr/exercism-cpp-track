@@ -9,8 +9,6 @@ TEST_CASE("a_new_school_has_an_empty_roster")
     const grade_school::school school_{};
     REQUIRE(school_.roster().empty());
 }
-
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("adding_a_student_adds_them_to_the_roster_for_the_given_grade")
 {
     grade_school::school school_;
@@ -32,6 +30,7 @@ TEST_CASE("adding_more_students_to_the_same_grade_adds_them_to_the_roster")
     const auto actual = school_.roster();
 
     const map<int, vector<string>> expected{{2, {"Blair", "James", "Paul"}}};
+
     REQUIRE(expected == actual);
 }
 
@@ -79,10 +78,9 @@ TEST_CASE("the_student_names_in_each_grade_in_the_roster_are_sorted")
     const auto actual = school_.roster();
 
     const map<int, vector<string>> expected{
-            {3, {"Kyle"}},
-            {4, {"Christopher", "Jennifer"}},
-            {6, {"Kareem"}}
-        };
+        {3, {"Kyle"}},
+        {4, {"Christopher", "Jennifer"}},
+        {6, {"Kareem"}}};
     REQUIRE(expected == actual);
 }
 
@@ -92,5 +90,3 @@ TEST_CASE("checking_a_grade_should_not_change_the_roster")
     school_.grade(1);
     REQUIRE(school_.roster().empty());
 }
-
-#endif
