@@ -1,5 +1,13 @@
 #include "gigasecond.h"
+#include "boost/date_time/posix_time/posix_time.hpp"
 
-namespace gigasecond {
+using namespace boost::posix_time;
 
-}  // namespace gigasecond
+namespace gigasecond
+{
+    const seconds oneGigaSecond = seconds(1000000000);
+    ptime advance(ptime time)
+    {
+        return time + oneGigaSecond;
+    }
+} // namespace gigasecond
