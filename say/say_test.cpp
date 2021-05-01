@@ -6,7 +6,6 @@ TEST_CASE("zero")
     REQUIRE("zero" == say::in_english(0ULL));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("one")
 {
     REQUIRE("one" == say::in_english(1ULL));
@@ -54,12 +53,12 @@ TEST_CASE("one_thousand_two_hundred_thirty_four")
 
 TEST_CASE("one_million")
 {
-    REQUIRE("one million" == say::in_english(1000ULL*1000ULL));
+    REQUIRE("one million" == say::in_english(1000ULL * 1000ULL));
 }
 
 TEST_CASE("one_million_two")
 {
-    REQUIRE("one million two" == say::in_english(1000ULL*1000ULL + 2ULL));
+    REQUIRE("one million two" == say::in_english(1000ULL * 1000ULL + 2ULL));
 }
 
 TEST_CASE("one_million_two_thousand_three_hundred_forty_five")
@@ -69,7 +68,7 @@ TEST_CASE("one_million_two_thousand_three_hundred_forty_five")
 
 TEST_CASE("one_billion")
 {
-    REQUIRE("one billion" == say::in_english(1000ULL*1000ULL*1000ULL));
+    REQUIRE("one billion" == say::in_english(1000ULL * 1000ULL * 1000ULL));
 }
 
 TEST_CASE("a_really_big_number")
@@ -90,4 +89,3 @@ TEST_CASE("raises_an_error_for_one_trillion")
     REQUIRE_THROWS_AS(say::in_english(1000ULL * 1000ULL * 1000ULL * 1000ULL),
                       std::domain_error);
 }
-#endif

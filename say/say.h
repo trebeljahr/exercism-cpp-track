@@ -1,8 +1,9 @@
 #if !defined(SAY_H)
 #define SAY_H
-
-namespace say {
-
-}  // namespace say
+#include <string>
+namespace say
+{
+    std::string in_english(unsigned long long number);
+} // namespace say
 
 #endif // SAY_H
