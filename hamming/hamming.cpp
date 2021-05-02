@@ -1,5 +1,6 @@
 #include "hamming.h"
 #include <stdexcept>
+
 namespace hamming
 {
     int compute(std::string a, std::string b)
@@ -9,9 +10,10 @@ namespace hamming
         {
             throw std::domain_error("Strings have to be same size");
         }
-        for (size_t i = 0; i <= a.size(); i++)
+
+        for (size_t i = 0; i < a.size(); i++)
         {
-            if (a[i] != b[i])
+            if (a.at(i) != b.at(i))
             {
                 result++;
             }
